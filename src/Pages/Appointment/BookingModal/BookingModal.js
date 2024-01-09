@@ -27,7 +27,7 @@ export default function BookingModal({
   selected,
   setBookingSuccess,
 }) {
-  const { name, time } = booking;
+  const { name, time, price } = booking;
   const { user } = useAuth();
   const [bookingInfo, setBookingInfo] = useState({
     phone: "",
@@ -49,6 +49,7 @@ export default function BookingModal({
       patientName: user.displayName,
       email: user.email,
       time,
+      price,
       serviceName: name,
       date: selected.toDateString(),
     };

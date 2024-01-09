@@ -19,7 +19,7 @@ import Typography from "@mui/material/Typography";
 import Calendar from "../../Home/Home/Shared/Calendar/Calendar";
 import { Button, Grid } from "@mui/material";
 import Appointments from "../Appointments/Appointments";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const drawerWidth = 200;
 
@@ -38,6 +38,12 @@ export default function Dashboard(props) {
       <Divider />
       <Link to="/appointment">
         <Button color="inherit">Appointment</Button>
+      </Link>
+      <Link to="/dashboard/dashboardhome">
+        <Button color="inherit">DashBoard</Button>
+      </Link>
+      <Link to="/dashboard/makeadmin">
+        <Button color="inherit">MakeAdmin</Button>
       </Link>
 
       <List>
@@ -130,15 +136,16 @@ export default function Dashboard(props) {
           }}
         >
           <Toolbar />
+          <Outlet />
 
-          <Grid container spacing={2}>
+          {/* <Grid container spacing={2}>
             <Grid item xs={12} sm={5}>
               <Calendar selected={selected} setSelected={setSelected} />
             </Grid>
             <Grid item xs={12} sm={7}>
               <Appointments selected={selected} />
             </Grid>
-          </Grid>
+          </Grid> */}
         </Box>
       </Box>
     </div>

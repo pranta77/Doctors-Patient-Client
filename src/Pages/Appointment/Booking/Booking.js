@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper";
 import BookingModal from "../BookingModal/BookingModal";
 
 export default function Booking({ booking, selected, setBookingSuccess }) {
-  const { name, time, space } = booking;
+  const { name, time, space, price } = booking;
   const [openBooking, setBookingOpen] = useState(false);
   const handleBookingOpen = () => setBookingOpen(true);
   const handleBookingClose = () => setBookingOpen(false);
@@ -24,6 +24,9 @@ export default function Booking({ booking, selected, setBookingSuccess }) {
           </Typography>
           <Typography variant="caption" display="block" gutterBottom>
             {space} SPACE AVAILABLE
+          </Typography>
+          <Typography variant="caption" display="block" gutterBottom>
+            Price ${price}
           </Typography>
           <Button onClick={handleBookingOpen} variant="contained">
             BOOK APPOINTMENT{" "}

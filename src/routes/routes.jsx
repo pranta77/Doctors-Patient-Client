@@ -5,6 +5,9 @@ import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
 import PrivateRoute from "../Pages/Login/PrivateRoute/PrivateRoute";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import DashbordHome from "../Pages/Dashboard/DashbordHome/DashbordHome";
+import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 
 const routes = createBrowserRouter([
   {
@@ -38,6 +41,24 @@ const routes = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/payment",
+    element: <Payment />,
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "dashboardhome",
+        element: <DashbordHome />,
+      },
+      {
+        path: "makeadmin",
+        element: <MakeAdmin />,
+      },
+    ],
   },
 ]);
 

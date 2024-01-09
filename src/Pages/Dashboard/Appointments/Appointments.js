@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Link } from "@mui/material";
 
 export default function Appointments({ selected }) {
   const { user } = useAuth();
@@ -28,7 +29,7 @@ export default function Appointments({ selected }) {
               <TableCell>Name</TableCell>
               <TableCell align="right">Time</TableCell>
               <TableCell align="right">Service</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell align="right">Payment</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -42,6 +43,16 @@ export default function Appointments({ selected }) {
                 </TableCell>
                 <TableCell align="right">{row.time}</TableCell>
                 <TableCell align="right">{row.serviceName}</TableCell>
+                <TableCell align="right">
+                  {row.payment ? (
+                    "paid"
+                  ) : (
+                    <Link to="/payment">
+                      {" "}
+                      <button>Pay</button>{" "}
+                    </Link>
+                  )}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
