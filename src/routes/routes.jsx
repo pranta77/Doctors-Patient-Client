@@ -42,10 +42,7 @@ const routes = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
-  {
-    path: "/payment",
-    element: <Payment />,
-  },
+
   {
     path: "dashboard",
     element: <Dashboard />,
@@ -57,6 +54,10 @@ const routes = createBrowserRouter([
       {
         path: "makeadmin",
         element: <MakeAdmin />,
+      },
+      {
+        path: "payment/:appointmentID",
+        element: <Payment />,
       },
     ],
   },

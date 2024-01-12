@@ -7,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Appointments({ selected }) {
   const { user } = useAuth();
@@ -19,6 +19,7 @@ export default function Appointments({ selected }) {
       .then((res) => res.json())
       .then((data) => setAppointments(data));
   }, [selected]);
+
   return (
     <div>
       <h2>Appointments:{appointments.length}</h2>
@@ -44,14 +45,10 @@ export default function Appointments({ selected }) {
                 <TableCell align="right">{row.time}</TableCell>
                 <TableCell align="right">{row.serviceName}</TableCell>
                 <TableCell align="right">
-                  {row.payment ? (
-                    "paid"
-                  ) : (
-                    <Link to="/payment">
-                      {" "}
-                      <button>Pay</button>{" "}
-                    </Link>
-                  )}
+                  <Link to={`/dashboard/payment/${row._id}`}>
+                    {" "}
+                    <button>Pay</button>{" "}
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}
